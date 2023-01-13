@@ -40,6 +40,7 @@ let logo = `
  88     88  88     88  88           88    Y8.   .8P 
  88     88  88     88  88888888P    dP     '8888P'  
 ****************************************************
+  Skriv [H]jelp for kommandoliste
 `;
 
 let inputBox = `
