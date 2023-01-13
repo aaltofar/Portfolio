@@ -17,6 +17,29 @@ function typeWriter() {
 	}
 }
 
+let projects = [
+	{
+		name: "Turn-based RPG",
+		link: "https://github.com/aaltofar/Turn-Based-RPG",
+	},
+	{
+		name: "Sorteringsalgorytme visualisering",
+		link: "https://github.com/aaltofar/sorting-algorithms",
+	},
+	{
+		name: "Vanne-Plante-App",
+		link: "https://github.com/aaltofar/Vanne-plante-app",
+	},
+	{
+		name: "Weather Forecast App",
+		link: "https://github.com/aaltofar/Weather_App",
+	},
+	{
+		name: "Hobby Generator",
+		link: "https://github.com/aaltofar/HobbyGenerator",
+	},
+];
+
 let noCmd = `
 Jeg gjenkjenner ikke kommandoen din... Skriv kun bokstaven som står inne i klammene []
 `;
@@ -122,7 +145,7 @@ class Window {
 	windowOpen() {
 		document.getElementById("app").innerHTML = `
 		<div class="title-bar">
-				<div class="title-bar-text">${this.projName}</div>
+				<div class="title-bar-text">C:\\My Documents\\Projects\\${this.projName}</div>
 				<div class="title-bar-controls">
 					<button
 						aria-label="Help"
