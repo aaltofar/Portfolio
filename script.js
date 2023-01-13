@@ -18,12 +18,12 @@ function typeWriter() {
 }
 
 let commandList = `
-Mulige kommandoer:
-  	-[H]jelp
-  	-[P]rosjekter
-  	-[C]V
-  	-[L]enker
-  	-[T]øm terminalen
+  Mulige kommandoer:
+  	  -[H]jelp
+  	  -[P]rosjekter
+  	  -[C]V
+  	  -[L]enker
+  	  -[T]øm terminalen
 `;
 
 let txtPrompt = `
@@ -47,7 +47,9 @@ let inputBox = `
 `;
 
 let links = `
-<a href="https://github.com/aaltofar">GitHub</a>
+  Her finner du lenker til mine sosiale nettverk:
+  	<a href="https://github.com/aaltofar">GitHub</a>
+  	<a href="https://www.linkedin.com/in/marius-aalto-7549531a2/">LinkedIn</a>
 `;
 
 function cmdInput(value) {
@@ -58,14 +60,16 @@ function cmdInput(value) {
 function runCommand() {
 	switch (command) {
 		case "H":
-			document.getElementById("textPasteField").innerHTML += commandList;
+			document.getElementById("textPasteField").innerHTML =
+				logo + commandList + inputBox;
 			break;
 		case "P":
 			break;
 		case "C":
 			break;
 		case "L":
-			document.getElementById("textPasteField").innerHTML += links;
+			document.getElementById("textPasteField").innerHTML =
+				logo + links + inputBox;
 			break;
 		case "T":
 			document.getElementById("textPasteField").innerHTML = inputBox;
