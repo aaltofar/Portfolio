@@ -1,7 +1,7 @@
 let txtPrompt2 = `mariusAalto@getAcademy:$`;
 let command;
 let i = 0;
-
+let activeWindow;
 function updateView() {
 	document.getElementById("textPasteField").innerHTML = logo;
 	typeWriter();
@@ -91,4 +91,63 @@ function runCommand() {
 			document.getElementById("textPasteField").innerHTML = inputBox;
 			break;
 	}
+}
+
+function newWindow(titleBarTxt) {
+	let html = `
+	<div class="window">
+		<div class="title-bar">
+			<div class="title-bar-text">${titleBarTxt}</div>
+			<div class="title-bar-controls">
+				<button aria-label="Close"></button>
+			</div>
+		</div>
+	</div>;
+	`;
+	return html;
+}
+
+class Window {
+	constructor(link, projName) {
+		(this.link = link), (this.projName = projName);
+	}
+
+	windowOpen() {
+		document.getElementById("app").innerHTML = `
+		<div class="title-bar">
+				<div class="title-bar-text">${this.projName}</div>
+				<div class="title-bar-controls">
+					<button
+						aria-label="Help"
+						onclick="test()"></button>
+					<button aria-label="Close" onclick="activeWindow.windowClose()"></button>
+				</div>
+			</div>
+			<div class="window-body">
+    <p>There's so much room for activities!</p>
+  </div>
+		`;
+	}
+
+	windowClose() {
+		document.getElementById("app").innerHTML = `
+		<div class="title-bar">
+				<div class="title-bar-text">MAIP v0.9</div>
+				<div class="title-bar-controls">
+					<button
+						aria-label="Help"
+						onclick="test()"></button>
+					<button aria-label="Close"></button>
+				</div>
+			</div>
+			<pre id="textPasteField">${txtPrompt} + ${inputBox}</pre>
+		`;
+		updateView();
+	}
+}
+
+function test() {
+	activeWindow = new Window("tullekukk", "pissekukk");
+	activeWindow.windowOpen();
+	console.log(activeWindow);
 }
