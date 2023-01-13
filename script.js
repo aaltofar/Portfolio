@@ -119,6 +119,8 @@ function runCommand() {
 		case "CV":
 		case "c":
 		case "cv":
+			activeWindow = new Window("ikkebruk", "CV", "CV");
+			activeWindow.windowOpen();
 			break;
 		case "L":
 		case "Lenker":
@@ -154,14 +156,32 @@ function newWindow(titleBarTxt) {
 }
 
 class Window {
-	constructor(link, projName) {
-		(this.link = link), (this.projName = projName);
+	constructor(link, projName, pageType) {
+		(this.link = link), (this.projName = projName), (this.pageType = pageType);
 	}
 
 	windowOpen() {
-		document.getElementById("app").innerHTML = `
+		if (this.pageType == "CV") {
+			document.getElementById("app").innerHTML = `
+			<div class="title-bar">
+				<div class="title-bar-text">C:\\My Documents\\${this.projName}</div>
+				<div class="title-bar-controls">
+					<button
+						aria-label="Help"
+						onclick="test()"></button>
+					<button aria-label="Close" onclick="activeWindow.windowClose()"></button>
+				</div>
+			</div>
+			<div class="window-body">
+			<iframe src="cv.pdf" width="100%" height="1200px">
+			</iframe>
+  </div>
+			
+			`;
+		} else {
+			document.getElementById("app").innerHTML = `
 		<div class="title-bar">
-				<div class="title-bar-text">C:\\My Documents\\Projects\\${this.projName}</div>
+				<div class="title-bar-text">C:\\My Documents\\${this.projName}</div>
 				<div class="title-bar-controls">
 					<button
 						aria-label="Help"
@@ -173,6 +193,7 @@ class Window {
     <p>There's so much room for activities!</p>
   </div>
 		`;
+		}
 	}
 
 	windowClose() {
@@ -181,8 +202,7 @@ class Window {
 				<div class="title-bar-text">MAIP v0.9</div>
 				<div class="title-bar-controls">
 					<button
-						aria-label="Help"
-						onclick="test()"></button>
+						aria-label="Help"></button>
 					<button aria-label="Close"></button>
 				</div>
 			</div>
