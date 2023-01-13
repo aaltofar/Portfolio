@@ -61,3 +61,15 @@ label {
     color: blue;
     font-size: 18px;
 }
+
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: green;
+  }

@@ -17,12 +17,16 @@ function typeWriter() {
 	}
 }
 
+let noCmd = `
+Jeg gjenkjenner ikke kommandoen din... Skriv kun bokstaven som står inne i klammene []
+`;
+
 let commandList = `
   Mulige kommandoer:
   	  -[H]jelp
   	  -[P]rosjekter
   	  -[C]V
-  	  -[L]enker
+  	  -[L]enker og kontakt
   	  -[T]øm terminalen
 `;
 
@@ -90,6 +94,9 @@ function runCommand() {
 		case "tøm terminalen":
 			document.getElementById("textPasteField").innerHTML = inputBox;
 			break;
+		default:
+			document.getElementById("textPasteField").innerHTML =
+				noCmd + commandList + inputBox;
 	}
 }
 
@@ -147,7 +154,7 @@ class Window {
 }
 
 function test() {
-	activeWindow = new Window("tullekukk", "pissekukk");
+	activeWindow = new Window("testeteste", "testingtesting");
 	activeWindow.windowOpen();
 	console.log(activeWindow);
 }
