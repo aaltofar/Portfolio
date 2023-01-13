@@ -60,18 +60,33 @@ function cmdInput(value) {
 function runCommand() {
 	switch (command) {
 		case "H":
+		case "Hjelp":
+		case "h":
+		case "hjelp":
 			document.getElementById("textPasteField").innerHTML =
 				logo + commandList + inputBox;
 			break;
 		case "P":
+		case "Prosjekter":
+		case "p":
+		case "prosjekter":
 			break;
 		case "C":
+		case "CV":
+		case "c":
+		case "cv":
 			break;
 		case "L":
+		case "Lenker":
+		case "l":
+		case "lenker":
 			document.getElementById("textPasteField").innerHTML =
 				logo + links + inputBox;
 			break;
 		case "T":
+		case "Tøm terminalen":
+		case "t":
+		case "tøm terminalen":
 			document.getElementById("textPasteField").innerHTML = inputBox;
 			break;
 	}
