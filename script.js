@@ -2,6 +2,7 @@ let txtPrompt2 = `mariusAalto@getAcademy:$`;
 let command;
 let i = 0;
 let activeWindow;
+
 function updateView() {
 	document.getElementById("textPasteField").innerHTML = logo;
 	typeWriter();
@@ -42,6 +43,19 @@ let projects = [
 
 let noCmd = `
 Jeg gjenkjenner ikke kommandoen din... Skriv kun bokstaven som står inne i klammene []
+`;
+
+function makeProjectList() {
+	let html = "";
+	for (let i = 0; i < projects.length; i++) {
+		html += `  <a>${projects[i].name}</a>`;
+	}
+	return html;
+}
+
+let projectsList = `
+  Her finner du noen av prosjektene mine, men flere finnes på GitHub.
+  <div class="projectView">${makeProjectList()}</div>
 `;
 
 let commandList = `
@@ -98,6 +112,8 @@ function runCommand() {
 		case "Prosjekter":
 		case "p":
 		case "prosjekter":
+			document.getElementById("textPasteField").innerHTML =
+				logo + projectsList + inputBox;
 			break;
 		case "C":
 		case "CV":
